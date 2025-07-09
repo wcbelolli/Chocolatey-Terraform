@@ -1,0 +1,24 @@
+# Installing Chocolatey using PowerShell
+# 1- Step
+Get-ExecutionPolicy
+# 2 - Step
+Set-ExecutionPolicy Bypass -Scope Process
+# 3 - Step
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+# This message will display but it means it was installed already ;)
+WARNING: 'choco' was found at 'C:\ProgramData\chocolatey\bin\choco.exe'.
+WARNING: An existing Chocolatey installation was detected. Installation will not continue. This script will not overwrite existing installations.
+If there is no Chocolatey installation at 'C:\ProgramData\chocolatey', delete the folder and attempt the installation again.
+
+Please use choco upgrade chocolatey to handle upgrades of Chocolatey itself.
+If the existing installation is not functional or a prior installation did not complete, follow these steps:
+ - Backup the files at the path listed above so you can restore your previous installation if needed.
+ - Remove the existing installation manually.
+ - Rerun this installation script.
+ - Reinstall any packages previously installed, if needed (refer to the lib folder in the backup).
+
+Once installation is completed, the backup folder is no longer needed and can be deleted.
+
+# 5 - Install Terraform
+ choco install terraform
